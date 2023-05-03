@@ -2,10 +2,11 @@
 
 ## 快速使用
 ```
-cd addons & 
-git clone https://github.com/sxqibo/fastadmin-addon-distribution distribution & 
-php think addon -a distribution -c package & 
-rm -rf distribution
+cd addons && 
+git clone https://github.com/sxqibo/fastadmin-addon-distribution distribution &&
+cd .. &&
+php think addon -a distribution -c package &&
+rm -rf addons/distribution
 
 安装时到 runtime/addons/distribution-1.0.0.zip
 ```
