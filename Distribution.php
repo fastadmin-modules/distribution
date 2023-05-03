@@ -22,8 +22,8 @@ class Distribution extends Addons
             'title' => '分销管理',
             'icon' => 'fa fa-yelp',
             'sublist' => [
-                ["name" => "user/distribution", "title" => "分销管理",'icon' => 'fa fa-child','is_menu'=>1],
-                ["name" => "user/invitation", "title" => "推广码",'icon' => 'fa fa-qrcode','is_menu'=>1],
+                ["name" => "user/distribution", "title" => "分销管理",'icon' => 'fa fa-child','ismenu'=>1],
+                ["name" => "user/invitation", "title" => "推广码",'icon' => 'fa fa-qrcode','ismenu'=>1],
             ]
         ]];
         Menu::create($menu);
