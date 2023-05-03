@@ -2,7 +2,7 @@
 
 ## 快速使用
 ```
-cd fastadmin/addons & 
+cd addons & 
 git clone https://github.com/sxqibo/fastadmin-addon-distribution distribution & 
 php think addon -a distribution -c package & 
 rm -rf distribution
