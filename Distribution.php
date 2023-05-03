@@ -1,6 +1,6 @@
 <?php
 
-namespace addons\slide;
+namespace addons\Distribution;
 
 use app\common\library\Menu;
 use think\Addons;
