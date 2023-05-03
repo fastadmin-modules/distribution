@@ -1,5 +1,14 @@
 # 分销管理
 
+## 快速使用
+```
+cd fastadmin/addons & 
+git clone https://github.com/sxqibo/fastadmin-addon-distribution distribution & 
+php think addon -a distribution -c package & 
+rm -rf distribution
+
+安装时到 runtime/addons/distribution-1.0.0.zip
+```
 
 ## 一：简要介绍
 分销可以有多级，一般法定规定最多只能有三级。
