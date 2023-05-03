@@ -11,34 +11,21 @@ use think\addons\Service;
  */
 class Distribution extends Addons
 {
-
     /**
      * 插件安装方法
      * @return bool
      */
     public function install()
     {
-        $menu = [
-            [
-                'name' => 'distribution',
-                'title' => '分销管理',
-                'icon' => 'fa fa-yelp',
-                'sublist' => [
-                    [
-                        'name' => 'user/distribution',
-                        'title' => '分销管理',
-                        'icon' => 'fa fa-child',
-                        'sublist' => []
-                    ],
-                    [
-                        'name' => 'user/distribution',
-                        'title' => '推广码',
-                        'icon' => 'fa fa-qrcode',
-                        'sublist' => []
-                    ],
-                ]
-            ],
-        ];
+        $menu = [[
+            'name' => 'distribution',
+            'title' => '分销管理',
+            'icon' => 'fa fa-yelp',
+            'sublist' => [
+                ["name" => "user/distribution", "title" => "分销管理",'icon' => 'fa fa-child','is_menu'=>1],
+                ["name" => "user/invitation", "title" => "推广码",'icon' => 'fa fa-qrcode','is_menu'=>1],
+            ]
+        ]];
         Menu::create($menu);
         Service::refresh();
         return true;
