@@ -25,16 +25,17 @@ rm -rf addons/distribution
 
 
 ## 二：数据表
-user_distribution   用户管理 - 分销表
-user_invitation     用户管理 - 推广表
+* user_distribution   用户管理 - 分销表
+* user_invitation     用户管理 - 推广表
 
-## 三：接口
+## 三：依赖
+* 钱包模块儿
+* QrCode
+* OSS
 
+## 四：接口文档
 
-## 四：依赖
-依赖钱包模块儿
-QrCode
-OSS
+[点击查看接口文档](https://console-docs.apipost.cn/preview/233045b91662bc3c/3d7604fc21649804)
 
 ## 五：相关图片
 
