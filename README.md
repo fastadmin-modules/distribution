@@ -37,6 +37,15 @@ rm -rf addons/distribution
 
 [点击查看接口文档](https://console-docs.apipost.cn/preview/233045b91662bc3c/3d7604fc21649804)
 
+用户登录时增加推广码的代码，一般在文件 `application/common/services/AuthLoginWithWechat.php` 代码如下：
+```
+//生成分销推广码
+$invitationData = \app\common\model\user\Invitation::where(['user_id' => $userInfo->id])->find();
+if (!$invitationData || empty($invitationData->code) || empty($invitationData->qr_code)) {
+    (new \app\common\services\InvitationServer())->saveQrCode($userInfo->id);
+}
+```
+
 ## 五：小程序
 目录下的 `weixin` 文件夹是小程序的使用目录！
 在 `app.json` 中引入文件，下边的注释是文档中所用，实际要去掉
@@ -71,12 +80,23 @@ rm -rf addons/distribution
 * 乐悠悠
 
 ## 八：其它模块儿怎样配合
-钱包的model需要设置，位置在：`application/common/model/wallet/Account.php`
+
+1. 配置增加标签
+在系统配置->字典配置->配置分组 中 增加 `"distribution":"分销配置"`
+
+2. 钱包的model需要设置
+位置在：`application/common/model/wallet/Account.php`
 代码参考如下：
 
 ```
 const  ACCOUNT_ID_PLATFORM_VIRTUAL = 1; // 平台虚拟账户
 const  ACCOUNT_ID_USER_VIRTUAL     = 3; // 用户虚拟账户
+```
+
+3. 钱包流水的model需要设置, 位置在 `application/common/model/wallet/WalletFlow.php`
+```
+const  BUSINESS_TYPE_DISTRIBUTION_FREEZE   = 3; // 分销-资金冻结 - 已入账
+const  BUSINESS_TYPE_DISTRIBUTION_UNFREEZE = 4; // 分销-资金解冻 - 可提现
 ```
 
 ## 九：其他模块儿怎样调用分销模块儿
@@ -90,7 +110,7 @@ $directTradeInfo = [
     'trade_title'   => '分销-直推奖励',
     'memo'          => $directUserLevel . '直推奖励',
     'trade_amount'  => $directPrice,
-    'business_type' => WalletFlow::BUSINESS_TYPE_UNFREEZE, // 分销直接到账
+    'business_type' => WalletFlow::BUSINESS_TYPE_DISTRIBUTION_UNFREEZE, // 分销直接到账
     'order_type'    => Order::ORDER_TYPE_REALl
 ];
 // 1.保存钱包数据
@@ -102,5 +122,19 @@ $userDirectWallet = $walletService->saveWallet($directPrice, $distributionAccoun
 $walletService->saveWalletFlows($platformDirectWallet, $userDirectWallet, $directTradeInfo, $order);
 ```
 
-## 九：相关图片
+## 九：历史数据的操作
+对于一开始开发的项目，不必要考虑用户的邀请码，因为用户一开始注册的时候就有邀请码。
+而对于二开的项目，需要清洗数据，对于历史用户，都需要增加邀请码，否则会因为没有数据而报错！
+因此我们需要操作以下步骤：
+第一步：增加命令
+在文件 `application/command.php` 增加命令：
+```
+'app\admin\command\HandleUserInvitation', // 操作用户的邀请码和二维码
+```
+第二步：运行命令
+```
+php think handle:user_invitation
+```
+
+## 十：相关图片
 待定

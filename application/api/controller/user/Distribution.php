@@ -65,7 +65,7 @@ class Distribution extends Mini
             $beginLastWeek = mktime(0, 0, 0, date('m'), date('d') - date('w') + 1 - 7, date('Y'));
             $endLastWeek   = mktime(23, 59, 59, date('m'), date('d') - date('w') + 7 - 7, date('Y'));
 
-            $where         = ['business_type' => \app\common\model\wallet\WalletFlow::BUSINESS_TYPE_UNFREEZE, 'trade_from_user_id' => 0, 'trade_from_user_type' => \app\common\model\wallet\Wallet::USER_TYPE_PLATFORM, 'trade_to_user_id' => $this->userId, 'trade_to_user_type' => \app\common\model\wallet\Wallet::USER_TYPE];
+            $where         = ['business_type' => \app\common\model\wallet\WalletFlow::BUSINESS_TYPE_DISTRIBUTION_UNFREEZE, 'trade_from_user_id' => 0, 'trade_from_user_type' => \app\common\model\wallet\Wallet::USER_TYPE_PLATFORM, 'trade_to_user_id' => $this->userId, 'trade_to_user_type' => \app\common\model\wallet\Wallet::USER_TYPE];
             $whereToday    = ['create_time' => ['BETWEEN', [$beginToday, $endToday]]];
             $whereThisWeek = ['create_time' => ['BETWEEN', [$beginWeek, $endWeek]]];
             $whereLastWeek = ['create_time' => ['BETWEEN', [$beginLastWeek, $endLastWeek]]];
@@ -101,7 +101,7 @@ class Distribution extends Mini
         $limit = $this->request->get('limit') ?? 10;
         $sort  = $this->request->get('sort') ?? 'id';
         $order = $this->request->get('order') ?? 'desc';
-        $where = ['business_type' => \app\common\model\wallet\WalletFlow::BUSINESS_TYPE_UNFREEZE, 'trade_from_user_id' => 0, 'trade_from_user_type' => \app\common\model\wallet\Wallet::USER_TYPE_PLATFORM, 'trade_to_user_id' => $this->userId, 'trade_to_user_type' => \app\common\model\wallet\Wallet::USER_TYPE];
+        $where = ['business_type' => \app\common\model\wallet\WalletFlow::BUSINESS_TYPE_DISTRIBUTION_UNFREEZE, 'trade_from_user_id' => 0, 'trade_from_user_type' => \app\common\model\wallet\Wallet::USER_TYPE_PLATFORM, 'trade_to_user_id' => $this->userId, 'trade_to_user_type' => \app\common\model\wallet\Wallet::USER_TYPE];
         $list  = $walletFlow->where($where)->field(['id', 'trade_amount', 'trade_title', 'memo', 'create_time'])->order($sort, $order)->paginate($limit);
         foreach ($list as $row) {
             $row['create_time_text'] = date("Y-m-d H:i:s", $row['create_time']);
@@ -124,7 +124,7 @@ class Distribution extends Mini
         $status  = $this->request->get('status') ?? 1; //推广状态:1=推广成功,2=推广失败
         $search  = $this->request->get('search') ?? ''; //搜索用户名称或手机号
         $isValid = $this->request->get('is_valid') ?? ''; //转化状态:1=有效会员,2=未下单用户
-        $where   = ['dkf_user_distribution.status' => $status];
+        $where   = ['user_distribution.status' => $status];
         // 类型:1=直推,2=间推
         $ids = $this->distribution->where(['superior_user_id' => $this->userId, 'status' => $status])->column('junior_user_id');
         if ((int)$type === 2) {

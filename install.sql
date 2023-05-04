@@ -35,7 +35,6 @@ CREATE TABLE `__PREFIX__user_invitation`
 -- ----------------------------
 -- 用户分销记录
 -- ----------------------------
-BEGIN;
 INSERT INTO `__PREFIX__user_distribution` (`id`, `superior_user_id`, `junior_user_id`, `status`, `describe`,
                                            `create_time`,
                                            `update_time`)
@@ -48,10 +47,35 @@ VALUES (2, 3, 10, '2', '绑定失败，已绑定他人！', 1635297144, 16352971
 -- ----------------------------
 -- 用户推广记录
 -- ----------------------------
-BEGIN;
 INSERT INTO `__PREFIX__user_invitation` (`id`, `user_id`, `code`, `qr_code`, `create_time`, `update_time`)
 VALUES (1, 1, 'TXQDEjft', 'https://huizhuandian.oss-cn-hangzhou.aliyuncs.com/code_imgs/20210915162130563.png',
         1631694091, 1631694091);
 INSERT INTO `__PREFIX__user_invitation` (`id`, `user_id`, `code`, `qr_code`, `create_time`, `update_time`)
 VALUES (2, 2, 'gWBFyPN0', 'https://huizhuandian.oss-cn-hangzhou.aliyuncs.com/code_imgs/20210915162132654.png',
         1631694092, 1631694092);
+
+
+-- ----------------------------
+-- 分销的配置
+-- ----------------------------
+
+INSERT INTO `__PREFIX__config` (`name`, `group`, `title`, `tip`, `type`, `value`, `content`, `rule`, `extend`,
+                                `setting`)
+VALUES ('invitation_link', 'distribution', '分销链接', '', 'string', 'https://hzd.newthink.cc/binding', '', '', '',
+        '{\"table\":\"\",\"conditions\":\"\",\"key\":\"\",\"value\":\"\"}');
+INSERT INTO `__PREFIX__config` (`name`, `group`, `title`, `tip`, `type`, `value`, `content`, `rule`, `extend`,
+                                `setting`)
+VALUES ('commission_primary', 'distribution', '普通佣金（%）', '', 'number', '2', '', '', '',
+        '{\"table\":\"\",\"conditions\":\"\",\"key\":\"\",\"value\":\"\"}');
+INSERT INTO `__PREFIX__config` (`name`, `group`, `title`, `tip`, `type`, `value`, `content`, `rule`, `extend`,
+                                `setting`)
+VALUES ('commission_advanced', 'distribution', '城市合伙人佣金（%）', '', 'number', '4', '', '', '',
+        '{\"table\":\"\",\"conditions\":\"\",\"key\":\"\",\"value\":\"\"}');
+INSERT INTO `__PREFIX__config` (`name`, `group`, `title`, `tip`, `type`, `value`, `content`, `rule`, `extend`,
+                                `setting`)
+VALUES ('commission_indirect', 'distribution', '间推佣金（%）', '', 'number', '1', '', '', '',
+        '{\"table\":\"\",\"conditions\":\"\",\"key\":\"\",\"value\":\"\"}');
+INSERT INTO `__PREFIX__config` (`name`, `group`, `title`, `tip`, `type`, `value`, `content`, `rule`, `extend`,
+                                `setting`)
+VALUES ('upgrade_num', 'distribution', '升级人数', '', 'number', '20', '', '', '',
+        '{\"table\":\"\",\"conditions\":\"\",\"key\":\"\",\"value\":\"\"}');
