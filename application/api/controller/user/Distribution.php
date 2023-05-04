@@ -124,7 +124,7 @@ class Distribution extends Mini
         $status  = $this->request->get('status') ?? 1; //推广状态:1=推广成功,2=推广失败
         $search  = $this->request->get('search') ?? ''; //搜索用户名称或手机号
         $isValid = $this->request->get('is_valid') ?? ''; //转化状态:1=有效会员,2=未下单用户
-        $where   = ['user_distribution.status' => $status];
+       
         // 类型:1=直推,2=间推
         $ids = $this->distribution->where(['superior_user_id' => $this->userId, 'status' => $status])->column('junior_user_id');
         if ((int)$type === 2) {
