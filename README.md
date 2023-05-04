@@ -30,6 +30,7 @@ rm -rf addons/distribution
 
 ## 三：依赖
 * 钱包模块儿
+* 通用文章模块儿
 * QrCode
 * OSS
 

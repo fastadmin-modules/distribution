@@ -56,6 +56,12 @@ VALUES (2, 2, 'gWBFyPN0', 'https://huizhuandian.oss-cn-hangzhou.aliyuncs.com/cod
 
 
 -- ----------------------------
+-- 用户表增加级别
+-- ----------------------------
+ALTER TABLE `__PREFIX__user`
+    ADD COLUMN level enum ('1','2') comment '分销等级:1=普通,2=城市合伙人' AFTER `salt`;
+
+-- ----------------------------
 -- 分销的配置
 -- ----------------------------
 
@@ -79,3 +85,12 @@ INSERT INTO `__PREFIX__config` (`name`, `group`, `title`, `tip`, `type`, `value`
                                 `setting`)
 VALUES ('upgrade_num', 'distribution', '升级人数', '', 'number', '20', '', '', '',
         '{\"table\":\"\",\"conditions\":\"\",\"key\":\"\",\"value\":\"\"}');
+
+-- ----------------------------
+-- 分销的文章
+-- ----------------------------
+INSERT INTO `__PREFIX__common_article` (`name`, `title`, `author`, `desc`, `content`, `publish_time`, `create_time`,
+                                        `update_time`, `delete_time`)
+VALUES ('distribution_pictures', '分销操作手册图片', '分销', '分销操作手册图片',
+        '<p><img src=\"https://huizhuandian.oss-cn-hangzhou.aliyuncs.com/design/fenxiao20211021.png\"/></p>',
+        1634719144, 1634719184, 1634784637, NULL);
