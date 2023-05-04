@@ -1,0 +1,47 @@
+.intruductionBox {
+  padding: 30rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+
+.intruduction_box {
+  display: flex;
+  font-size: 26rpx;
+  padding: 20rpx 5rpx;
+}
+
+.intruduction_text {
+  width: 30%;
+  color: #999999;
+}
+
+.intruduction_name {
+  color: #333333;
+}
+
+.intruduction_line {
+  height: 2rpx;
+  background: #f5f5f5;
+}
+
+.intruductionImgs {
+  margin-top: 10rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.intruductionImgs image {
+  width: 100%;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+image{
+	width: 100%;
+}
+img{
+	max-width: 100%;
+}

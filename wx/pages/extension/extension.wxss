@@ -1,0 +1,425 @@
+/**user.wxss**/
+@import "/static/css/iconfont.wxss";
+
+page {
+  background-color: #f5f5f5;
+  font-family: PingFang SC, PingFang SC-Medium;
+}
+
+/* 背景，头像 */
+.user_bg {
+  width: 100%;
+  height: 320rpx;
+  background: linear-gradient(to right, #f84b28, #ff722c);
+}
+
+.bgBox {
+  display: flex;
+  align-items: center;
+  margin-left: 55rpx;
+  margin-top: -175rpx;
+}
+
+.bgImage {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.bgImage image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.bgText {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30rpx;
+  color: #fff;
+}
+
+.text_name {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.text_name text {
+  font-size: 20rpx;
+  font-weight: normal;
+  background: rgb(253, 225, 142);
+  color: red;
+  padding: 2rpx 10rpx;
+  border-radius: 30rpx;
+}
+
+.text_id {
+  font-size: 20rpx;
+  margin-top: 5rpx;
+}
+
+/* 钱包 */
+.bgBoxs {
+  padding: 0 30rpx;
+  margin-top: 35rpx;
+}
+
+.bgbox_boxs {
+  background-color: #51504F;
+  border-radius: 15rpx;
+  padding: 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.boxBox {
+  display: flex;
+  align-items: center;
+}
+
+.box_image {
+  width: 52rpx;
+  height: 52rpx;
+  margin-right: 30rpx;
+}
+
+.box_image image {
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.box_money {
+  display: flex;
+  flex-direction: column;
+  color: #F6DEB2;
+}
+
+.money_over {
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+
+.money_yuan {
+  margin-left: 25rpx;
+}
+
+.wx_over {
+  font-size: 24rpx;
+}
+
+.box_btn {
+  background-color: #F4D39C;
+  border-radius: 30rpx;
+  font-size: 32rpx;
+  padding: 10rpx 35rpx;
+  margin-right: 20rpx;
+}
+
+.myOrderBox {
+  width: 690rpx;
+  margin: 20rpx auto;
+  padding: 25rpx 0;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.orderHeader {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.myOrder {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.viewOrder {
+  color: #999;
+  font-size: 25rpx;
+}
+
+.you {
+  font-size: 23rpx;
+  margin-left: 10rpx;
+}
+
+.orderList {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listBox text {
+  font-size: 25rpx;
+  margin-top: 20rpx;
+}
+
+.ordersBox {
+  width: 690rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  background-color: #fafafa;
+}
+
+.boxs_boxs {
+  width: 90%;
+  margin: 0 auto;
+  padding: 25rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.boxs_box {
+  display: flex;
+  align-items: center;
+  margin-left: 5rpx;
+}
+
+.boxs_box text {
+  color: #666;
+  margin-left: 10rpx;
+  font-size: 25rpx;
+}
+
+.boxs_img {
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line {
+  width: 90%;
+  height: 2rpx;
+  margin: 0 auto;
+  background-color: #e7e7e7;
+}
+
+.btn {
+  width: 100% !important;
+  padding: 0;
+}
+
+.btn .boxs_boxs {
+  width: 90%;
+  margin: 0 auto;
+  padding: 25rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: normal;
+}
+
+.orderLists {
+  display: flex;
+  margin: 20rpx auto;
+  align-items: center;
+  width: 690rpx;
+  height: 155rpx;
+  background: #ffffff;
+  border-radius: 10rpx;
+}
+
+.orderLists .listBox {
+  margin: 0 34rpx;
+}
+
+.myDistributon {
+  width: 690rpx;
+  background: #ffffff;
+  border-radius: 10rpx;
+  display: flex;
+  margin: 20rpx auto;
+  box-sizing: border-box;
+  padding: 15rpx 24rpx;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 60rpx;
+}
+
+.myDistributon .red-left {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.red-left-top {
+  margin-left: 34rpx;
+}
+
+.myDistributon .red-left .red-left-top view {
+  color: #F8452C;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.myDistributon .red-left .red-left-top view:nth-child(1) {
+  margin-top: 20rpx;
+  font-size: 26rpx;
+}
+
+.myDistributon .red-left .red-left-top view:nth-child(2) {
+  margin-top: 10rpx;
+  font-size: 34rpx;
+}
+
+.myDistributon .red-left image {
+  width: 104rpx;
+}
+
+.red-right {
+  box-sizing: border-box;
+  background: rgb(245, 67, 41);
+  border-radius: 50rpx;
+  padding: 20rpx 30rpx;
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.shareInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 690rpx;
+  border-radius: 10rpx;
+  margin: 20rpx auto;
+  box-sizing: border-box;
+}
+
+.shareInfo-item {
+  border-radius: 10rpx;
+  background-color: #fff;
+  width: 48%;
+  height: 140rpx;
+}
+
+.shareInfo-item view {
+  text-align: center;
+}
+
+.shareInfo-item .num {
+  font-size: 38rpx;
+  color: rgb(224, 78, 67);
+  margin-top: 24rpx;
+}
+
+.shareInfo-item .text {
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+
+.myDis {
+  width: 690rpx;
+  margin-left: 30rpx;
+  box-sizing: border-box;
+  padding: 24rpx;
+  background: #fff;
+}
+
+.myDis .title {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #333333;
+  border-bottom: 2rpx solid rgb(245, 245, 245);
+  padding-bottom: 18rpx;
+}
+
+.myDis .title view {
+  float: right;
+  font-size: 20rpx;
+  font-weight: 700;
+  color: #999999;
+}
+
+.myDis .line- {
+  display: flex;
+}
+
+.myDis .line- .item {
+  flex: 1;
+  height: 128rpx;
+}
+
+.myDis .line- .item view {
+  text-align: center;
+}
+
+.myDis .line-:nth-child(1) {
+  margin-top: 30rpx;
+  border-bottom: 2rpx solid #f5f5f5;
+}
+
+.myDis .line- .item:nth-child(2) {
+  border-left: 2rpx solid #f5f5f5;
+}
+
+.myDis .line- .item view:nth-child(1) {
+  font-size: 22rpx;
+  font-weight: 700;
+  color: #999999;
+  padding-top: 30rpx;
+  box-sizing: border-box;
+}
+
+.myDis .line- .item view:nth-child(2) {
+  margin-top: 6rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #f8452c;
+}
+
+.fenxiaoshuoming {
+  position: absolute;
+  right: 0;
+  top: 180rpx;
+  width: 152rpx;
+  height: 50rpx;
+  background: #ffffff;
+  border-radius: 25rpx 0rpx 0rpx 25rpx;
+}
+
+.codeMask {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.09);
+	z-index: 100;
+}
+
+.canvas_dom {
+	width: 230px;
+	height: 270px;
+	background: black;
+	position: fixed;
+	top: 45%;
+	left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20rpx;
+}
+
+.canvas_dom canvas {
+	width: 230px;
+	height: 270px;
+	opacity: 0;
+}
+
+.canvas_dom image {
+	width: 100%;
+}

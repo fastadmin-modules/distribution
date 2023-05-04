@@ -1,0 +1,214 @@
+/* walletBalance.wxss */
+@import "/static/css/iconfont.wxss";
+
+page {
+	background-color: #f5f5f5;
+}
+
+.walletBalance {
+	padding: 30rpx;
+	font-family: PingFang SC, PingFang SC-Medium;
+}
+
+/* 钱包余额 */
+/* .walletBox {
+	height: 242rpx;
+	padding: 0 40rpx;
+	border-radius: 20rpx;
+	background:url('http://huizhuandian.oss-cn-hangzhou.aliyuncs.com/assets/img/czk.png') no-repeat;
+	background-size:100% 100%; */
+	/* background-image: linear-gradient(to top, #f94f28, #fe6c2b); */
+/* 	color: #fff;
+	position: relative;
+	display:flex;
+	justify-content: space-between;
+} */
+/* .walletBox-left{
+	display:flex;
+	flex-direction: column;
+	color: #fff;
+	margin-top:38rpx;
+}
+.left-withdraw{
+	font-size: 26rpx;
+	font-family: PingFang SC, PingFang SC-Medium;
+}
+.left-money{
+	font-size: 44rpx;
+	font-family: PingFang SC, PingFang SC-Bold;
+	font-weight: 700;
+	margin:15rpx 0 20rpx;
+}
+.total{
+	font-size: 22rpx;
+	font-family: PingFang SC, PingFang SC-Medium;
+}
+.walletBox-right{
+	display:flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-top:52rpx;
+}
+.walletBtn{
+	width: 143rpx;
+	height: 58rpx;
+	background-color: #FFF;
+	border-radius: 10rpx;
+	font-size: 26rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ff722c;
+	margin-bottom:58rpx;
+}
+.walletBox-right text{
+	font-size: 22rpx;
+	font-family: PingFang SC, PingFang SC-Medium;
+	color: #ffffff;
+} */
+
+.walletBox {
+	height: 310rpx;
+	padding: 0 30rpx;
+	border-radius: 20rpx;
+	background-image: linear-gradient(to top, #f94f28, #fe6c2b);
+	color: #fff;
+	position: relative;
+	display:flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.walletBox_wallet {
+	display: flex;
+	justify-content: space-around;
+	margin-top:55rpx;
+}
+
+.wallet_text {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.walletText {
+	font-size: 28rpx;
+}
+
+.walletMoney {
+	font-size: 32rpx;
+	margin-top: 28rpx;
+}
+.walletBox-bot{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom:34rpx;
+}
+.walletBox_text {
+	width: 427rpx;
+	font-size: 20rpx;
+	font-weight: 400;
+}
+.walletBtn {
+	width: 143rpx;
+	height: 58rpx;
+	background-color: #FF8B53;
+	border-radius: 10rpx;
+	font-size: 26rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* 提现记录 */
+.balance {
+	background-color: #fff;
+	border-radius: 10rpx;
+	margin-top: 30rpx;
+	padding: 30rpx 30rpx 0 30rpx;
+}
+
+.historyText {
+	font-size: 32rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.historyText view {
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	box-sizing: border-box;
+	padding-bottom: 20rpx;
+}
+
+.active {
+	border-bottom: 4rpx solid #f94f28;
+}
+.lineTab {
+	border-bottom: 4rpx solid #ffff;
+}
+
+.historyIncomeKong{
+	height:89vh;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.historyIncomeKong image{
+	width: 289rpx;
+	height: 280rpx;
+}
+.historyIncomeKong text{
+	font-size: 32rpx;
+	font-family: PingFang SC, PingFang SC-Medium;
+	color: #999999;
+	margin-top:40rpx;
+}
+.recordBox {
+	padding: 25rpx 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1rpx solid #f5f5f5;
+}
+
+.record {
+	display: flex;
+	flex-direction: column;
+}
+
+.recordText,
+.status_text {
+	font-size: 26rpx;
+	font-weight: 400;
+	color: rgb(100, 100, 100);
+}
+
+.status_text {
+	color: #ff722c;
+	text-align: right;
+}
+
+.recordTxt {
+	font-size: 20rpx;
+	color: #999;
+}
+
+.money text {
+	font-size: 26rpx;
+	color: #333;
+}
+
+.line {
+	height: 108rpx;
+	border-right: 2rpx solid #fff;
+}
+
+.listActive {
+	color: rgb(100, 100, 100);
+	font-weight: 400;
+}

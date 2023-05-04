@@ -1,0 +1,54 @@
+<!--pages/extensionList/extensionList.wxml-->
+<view class="switch">
+  <view class="{{index==0?'active':''}}" bindtap="switchTop" data-index="0">直推会员</view>
+  <view class="{{index==1?'active':''}}" bindtap="switchTop" data-index="1">间推会员</view>
+</view>
+<view class="content">
+  <view class="num-">
+    <view class="num-item">
+      <text>{{total}}</text>
+      <text>直推团队</text>
+    </view>
+    <view class="num-item item-fh">
+      =
+    </view>
+    <view class="num-item">
+      <text>{{valid}}</text>
+      <text>有效会员</text>
+    </view>
+    <view class="num-item item-fh">
+      +
+    </view>
+    <view class="num-item">
+      <text>{{invalid}}</text>
+      <text>未下单用户</text>
+    </view>
+  </view>
+  <!-- <view class="sort">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        {{array[index]}} <image style="width: 30rpx;transform: translateY(8rpx);" mode="widthFix"
+          src="./../../static/imgs/下.png"></image>
+      </view>
+    </picker>
+  </view> -->
+  <view class="sort-title">
+    <view class="left">直推团队</view>
+    <view class="mid">订单次数</view>
+    <view class="right">订单总金额（元）</view>
+  </view>
+  <view class="sort-list">
+    <view class="sort-item" wx:for="{{list}}">
+      <view class="left">
+        <image src="{{item.junior.avatar||'/static/imgs/avatar.png'}}"></image>
+        <view class="name-">
+          <view class="name">{{item.junior.nickname}}</view>
+          <view class="time">{{item.create_time_text}}</view>
+        </view>
+      </view>
+      <view class="mid">{{item.order_num}}</view>
+      <view class="right">{{item.order_total}}</view>
+    </view>
+
+  </view>
+</view>

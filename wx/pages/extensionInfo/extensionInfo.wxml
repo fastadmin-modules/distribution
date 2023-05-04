@@ -1,0 +1,25 @@
+<view class="walletBalance">
+	<!-- 提现记录 -->
+	<view class="balance">
+		<view class="historyText">
+			<!-- <view class="{{active==0?'active':'lineTab'}}" bindtap="switchList" data-index="0">收支记录</view>
+			<view class="{{active==1?'active':'lineTab'}}" bindtap="switchList" data-index="1">提现记录</view> -->
+		</view>
+		<view class="historyIncomeKong" wx:if="{{list.length == 0}}">
+			<image src="../../static/imgs/kong.png"></image>
+			<text>暂无任何记录</text>
+		</view>
+		<view class="historyIncome" wx:else>
+			<view class="recordBox" wx:for="{{list}}" :key="index">
+				<view class="record">
+					<text class="recordText {{active==1?'listActive':''}}">{{item.trade_title||item.title}}</text>
+					<text class="recordTxt">{{item.create_time_text}}</text>
+				</view>
+				<view class="money">
+					<view class="status_text" wx:if="{{active==1}}">{{item.status_text}}</view>
+					<text>{{item.trade_amount||item.withdraw_amount}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

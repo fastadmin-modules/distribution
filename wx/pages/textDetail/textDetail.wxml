@@ -1,0 +1,3 @@
+<view class="intruductionBox">
+  <rich-text nodes="{{list.content}}"></rich-text>
+</view>

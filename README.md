@@ -37,6 +37,32 @@ rm -rf addons/distribution
 
 [点击查看接口文档](https://console-docs.apipost.cn/preview/233045b91662bc3c/3d7604fc21649804)
 
+## 五：小程序
+目录下的 `weixin` 文件夹是小程序的使用目录！
+在 `app.json` 中引入文件，下边的注释是文档中所用，实际要去掉
+```
+{
+  "pages": [
+    "pages/textDetail/textDetail",
+    "pages/extension/extension", // 分销页面
+    "pages/extensionList/extensionList", // 分销列表（直推人数，间推人数）
+    "pages/extensionInfo/extensionInfo", // 我的分销业绩
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/extension/extension",
+        "iconPath": "static/imgs/推广_.png",
+        "selectedIconPath": "static/imgs/推广.png",
+        "text": "推广"
+      }
+    ]
+  }
+}
+```
+
+## 六：uniapp
+待定
+
 ## 五：相关图片
-
-
+待定

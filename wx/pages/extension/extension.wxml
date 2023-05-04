@@ -1,0 +1,79 @@
+<!--user.wxml-->
+<view class="userBox">
+  <view class="user">
+    <!-- 背景，头像 -->
+    <view class="user_bg"></view>
+    <view class="bgBox" bindtap="isUserLogin">
+      <view class="bgImage">
+        <image src="{{userInfo.avatar?userInfo.avatar:'/static/imgs/avatar.png'}}"></image>
+      </view>
+      <view class="bgText">
+        <text class="text_name">{{userInfo.nickname||'未登录'}} <text wx:if="{{distribtionInfo.level_text}}">{{distribtionInfo.level_text}}</text> </text>
+        <text class="text_id" wx:if="{{distribtionInfo.superior_name}}">推荐人：{{distribtionInfo.superior_name}}</text>
+      </view>
+    </view>
+    <!-- 钱包 -->
+  </view>
+  <view class="myDistributon" wx:if="{{distribtionInfo.level_text}}">
+    <view class="red-left">
+      <image src="./../../static/imgs/red.png" mode="widthFix"></image>
+      <view class="red-left-top">
+        <view>推广码</view>
+        <view>{{distribtionInfo.invitation_code}}</view>
+      </view>
+    </view>
+    <view class="red-right" bindtap="extension">
+      立即推广
+    </view>
+  </view>
+  <view class="shareInfo" bindtap="goExtensionList" wx:if="{{distribtionInfo.level_text}}">
+    <view class="shareInfo-item">
+      <view class="num">{{distribtionInfo.direct}}</view>
+      <view class="text">直推人数</view>
+    </view>
+    <view class="shareInfo-item">
+      <view class="num">{{distribtionInfo.indirect}}</view>
+      <view class="text">间推人数</view>
+    </view>
+  </view>
+  <!-- 我的业绩 -->
+  <view class="myDis">
+    <view class="title">我的业绩 <view bindtap="lookMx">查看明细></view>
+    </view>
+    <view class="content">
+      <view class="line-">
+        <view class="item">
+          <view>今日业绩（元）</view>
+          <view>{{DistributionInfo.achievement.today}}</view>
+        </view>
+        <view class="item">
+          <view>本周业绩（元）</view>
+          <view>{{DistributionInfo.achievement.this_week}}</view>
+        </view>
+      </view>
+      <view class="line-">
+        <view class="item">
+          <view>上周业绩（元）</view>
+          <view>{{DistributionInfo.achievement.last_week}}</view>
+        </view>
+        <view class="item">
+          <view>累计业绩（元）</view>
+          <view>{{DistributionInfo.achievement.cumulative}}</view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <image src="https://huizhuandian.oss-cn-hangzhou.aliyuncs.com/uploads/20211021/939ade10bf7933ac76454853e70df440.png" mode="widthFix" style="width: 690rpx;margin: 20rpx 30rpx;" bindtap="zhihuan"></image>
+  <view class="fenxiaoshuoming flex-center" bindtap="fenxiaoshuoming">分销说明</view>
+</view>
+
+<!-- S== 分销码 -->
+<view class="codeMask" wx:if="{{showcodMask}}" catchtap="closeCodeMask">
+  <view class="canvas_dom">
+    <image style="position: absolute;right:10rpx;top: 10rpx;width:40rpx ;height: 40rpx;" src="https://huizhuandian.oss-cn-hangzhou.aliyuncs.com/uploads/20211111/274a194d9f6dc436cb78aea772baa00c.png"></image>
+    <canvas canvas-id="shareBox" wx:if="{{showCanvas}}"></canvas>
+    <image src="{{showImg}}" show-menu-by-longpress="true" wx:if="{{!showCanvas}}" mode="widthFix" catchtap="save_canvas"></image>
+  </view>
+</view>
+<!-- E== 分销码 -->
