@@ -70,5 +70,37 @@ rm -rf addons/distribution
 * 康旅荟
 * 乐悠悠
 
-## 五：相关图片
+## 八：其它模块儿怎样配合
+钱包的model需要设置，位置在：`application/common/model/wallet/Account.php`
+代码参考如下：
+
+```
+const  ACCOUNT_ID_PLATFORM_VIRTUAL = 1; // 平台虚拟账户
+const  ACCOUNT_ID_USER_VIRTUAL     = 3; // 用户虚拟账户
+```
+
+## 九：其他模块儿怎样调用分销模块儿
+一般来说，本方法已经足够使用，但如果有特殊情况时，其他方法可以参考 `DistributionServer.php` 方法进行调用本模块儿，其实就是钱包分账的方式，大致方法可参考如下：
+```
+$directPrice     = $distribution['direct']['price'];
+$directUserId    = $distribution['direct']['id'];
+$directUserLevel = $distribution['direct']['level_text'];
+Log::info('直推价格：' . $directPrice . ',直推人员ID:' . $directUserId . ',level:' . $directUserLevel);
+$directTradeInfo = [
+    'trade_title'   => '分销-直推奖励',
+    'memo'          => $directUserLevel . '直推奖励',
+    'trade_amount'  => $directPrice,
+    'business_type' => WalletFlow::BUSINESS_TYPE_UNFREEZE, // 分销直接到账
+    'order_type'    => Order::ORDER_TYPE_REALl
+];
+// 1.保存钱包数据
+// 1.1 保存平台钱包数据
+$platformDirectWallet = $walletService->saveWallet('-' . $directPrice, $toPlatformAccountId, $platformUserId, Role::WALLET_ROLE_PLATFORM);
+// 1.2.保存用户账户钱包数据
+$userDirectWallet = $walletService->saveWallet($directPrice, $distributionAccountId, $directUserId, Role::WALLET_ROLE_USER);
+// 1.3. 保存钱包流水
+$walletService->saveWalletFlows($platformDirectWallet, $userDirectWallet, $directTradeInfo, $order);
+```
+
+## 九：相关图片
 待定
