@@ -137,5 +137,12 @@ $walletService->saveWalletFlows($platformDirectWallet, $userDirectWallet, $direc
 php think handle:user_invitation
 ```
 
-## 十：相关图片
+## 十：微信设置
+用户扫二维码的地址是：  https://www.xxx.com/binding , 这个 binding 不是一个方法，只是一个地址
+
+需要在小程序 开发管理->开发设置->扫普通链接二维码打开小程序，添加：
+1. 二维码地址 https://www.xxx.com/binding
+2. 小程序路径 pages/index/index
+
+## 十一：相关图片
 待定
