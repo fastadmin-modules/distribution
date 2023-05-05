@@ -83,11 +83,11 @@ if (!$invitationData || empty($invitationData->code) || empty($invitationData->q
 ## 八：其它模块儿怎样配合
 
 1. 配置增加标签
-在系统配置->字典配置->配置分组 中 增加 `"distribution":"分销配置"`
+   在系统配置->字典配置->配置分组 中 增加 `"distribution":"分销配置"`
 
 2. 钱包的model需要设置
-位置在：`application/common/model/wallet/Account.php`
-代码参考如下：
+   位置在：`application/common/model/wallet/Account.php`
+   代码参考如下：
 
 ```
 const  ACCOUNT_ID_PLATFORM_VIRTUAL = 1; // 平台虚拟账户
@@ -143,13 +143,13 @@ php think handle:user_invitation
 需要在小程序 开发管理->开发设置->扫普通链接二维码打开小程序，添加：
 1. 二维码地址 https://www.xxx.com/binding
 2. 小程序路径 pages/index/index
-添加好了并发布！
+   添加好了并发布！
 
 ## 十一：小程序首页监听
 在 `pages/index/index.js` 的 onload 内容中加入以下代码
 ```
-onLoad(op) {
-   
+	onLoad(op) {
+    
     // 监听分销成功的内容
 		// op.q = 'https://fzw.newthink.cc/binding?code=TXQDEjft'
 		if (op.q) {
@@ -197,12 +197,14 @@ onLoad(op) {
 					})
 				}
 			})
-    }
+		}
+		
 	},
     
 ```
 
 ## 十一：流程图
+![惠赚点流程图](https://addons-platform.oss-cn-beijing.aliyuncs.com/workflow/huizhuandian.png)
 
 
 ## 十二：相关图片
