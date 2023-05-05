@@ -143,6 +143,67 @@ php think handle:user_invitation
 需要在小程序 开发管理->开发设置->扫普通链接二维码打开小程序，添加：
 1. 二维码地址 https://www.xxx.com/binding
 2. 小程序路径 pages/index/index
+添加好了并发布！
 
-## 十一：相关图片
+## 十一：小程序首页监听
+在 `pages/index/index.js` 的 onload 内容中加入以下代码
+```
+onLoad(op) {
+   
+    // 监听分销成功的内容
+		// op.q = 'https://fzw.newthink.cc/binding?code=TXQDEjft'
+		if (op.q) {
+			const q = decodeURIComponent(op.q)
+			let code = q.split("=")[1]
+			app.isUserLogin((status) => {
+				if (status.status == 0) {
+					// 如果未登录，login之后传open_id
+					wx.login({
+						success: ret => {
+							app.postajax({
+								url: "/api/user/distribution/bindingDistribution",
+								data: {
+									code: code,
+									open_id: ret.code
+								},
+								success: (res) => {
+									let msg = res.msg || res.message
+									setTimeout(() => {
+										wx.showToast({
+											title: msg,
+											icon: "none"
+										})
+									}, 600);
+								}
+							})
+						}
+					})
+
+				} else {
+					app.postajax({
+						url: "/api/user/distribution/bindingDistribution",
+						data: {
+							code: code
+						},
+						success: (res) => {
+							let msg = res.msg || res.message
+							setTimeout(() => {
+								wx.showToast({
+									title: msg,
+									icon: "none"
+								})
+							}, 600);
+						}
+					})
+				}
+			})
+    }
+	},
+    
+```
+
+## 十一：流程图
+
+
+## 十二：相关图片
 待定
